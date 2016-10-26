@@ -7,7 +7,7 @@ from snippets.serializers import SnippetSerializer
 @api_view(['GET', 'POST'])
 def snippet_list(request):
     """
-    List all code snippets, or create a new snippet
+    List all snippets, or create a new snippet.
     """
     if request.method == 'GET':
         snippets = Snippet.objects.all()
@@ -17,12 +17,12 @@ def snippet_list(request):
     elif request.method == 'POST':
         serializer = SnippetSerializer(data=request.data)
         if serializer.is_valid():
-            serialize.save()
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return JSONResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def snippet_detail(request, pk):
+def snippet_detail(request, pk, format=None):
     """
     Retrieve, update or delete a code snippet.
     """
