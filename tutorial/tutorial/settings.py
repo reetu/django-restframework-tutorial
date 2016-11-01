@@ -71,7 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tutorial.wsgi.application'
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 2
 }
 
 # Database
