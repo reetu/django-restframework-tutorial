@@ -17,7 +17,7 @@ snippet_detail = SnippetViewSet.as_view({
     'patch': 'partial_update',
     'delete': 'destroy'
 })
-snippet_highlight = SnippetViewSet.as_view){
+snippet_highlight = SnippetViewSet.as_view({
     'get': 'highlight'
 }, renderer_classes=[renderers.StaticHTMLRenderer])
 user_list = UserViewSet.as_view({
@@ -29,7 +29,7 @@ user_detail = UserViewSet.as_view({
 
 # Register the views with the URL conf
 urlpatterns = [
-    url(r'^$', views.api_root),
+    url(r'^$', api_root),
     url(r'^snippets/$', snippet_list, name='snippet-list'),
     url(r'^snippets/(?P<pk>[0-9]+)/$', snippet_detail, name='snippet-detail'),
     url(r'^snippets/(?P<pk>[0-9]+)/highlight/$', snippet_highlight, name='snippet-highlight'),
